@@ -1,0 +1,867 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">  
+
+	<link rel="icon" type="image/ico" href= "http://blog.hannakangbrown.com/images/favicon.ico" />
+
+	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style2.css">
+	<link  rel="stylesheet" href="css/jplayer-black-and-yellow.css">
+	
+	<!-- Begin JavaScript -->
+		<script src="js/libs/modernizr-2.0.6.min.js"></script>	
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+		<script src="js/fill_resize.js" type="text/javascript"></script>
+		
+		<script src="js/libs/popcorn-complete.min.js"></script>
+		
+		<script src="js/plugins.js"></script>
+
+		<script>
+		
+		//<![CDATA[
+		$(document).ready(function(){
+		
+			$("#pop-audio").jPlayer({
+				ready: function () {
+					$(this).jPlayer("setMedia", {
+						mp3: "BananasinPajamas1.mp3",
+						oga: "BananasinPajamas1.ogg"
+					}).jPlayer("pause");
+				},
+				play: function() { // To avoid both jPlayers playing together.
+					$(this).jPlayer("pauseOthers");
+				},
+				ended: function (event) {
+					$(this).jPlayer("pause");
+				},
+				swfPath: "js",
+				supplied: "oga, mp3",
+				//errorAlerts:true
+			});
+
+
+			// Chapter 2 Facts Audio
+			$("#fact-audio").jPlayer({
+				ready: function () {
+					$(this).jPlayer("setMedia", {
+						mp3: "assets/audio/audio_bruna.mp3",
+						oga: "assets/audio/audio_bruna.ogg"
+					}).jPlayer("pause");
+				},
+				play: function() { // To avoid both jPlayers playing together.
+					$(this).jPlayer("pauseOthers");
+				},
+				ended: function (event) {
+					$(this).jPlayer("pause");
+				},
+				swfPath: "js",
+				supplied: "oga, mp3",
+				//errorAlerts:true
+			});
+
+
+			// Chapter 3 History Audio
+			$("#hist-audio").jPlayer({
+				ready: function () {
+					$(this).jPlayer("setMedia", {
+						mp3: "assets/audio/Bananas3.mp3",
+						oga: "assets/audio/Bananas3.ogg"
+					}).jPlayer("pause");
+				},
+				play: function() { // To avoid both jPlayers playing together.
+					$(this).jPlayer("pauseOthers");
+				},
+				ended: function (event) {
+					$(this).jPlayer("pause");
+				},
+				swfPath: "js",
+				supplied: "mp3, ogg",
+				//errorAlerts:true
+			});
+
+			
+			$('#lm').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#learn'
+				});
+				return false;
+			});
+			
+			//jplayer events
+			
+			$('#title-button').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#introduction'
+				});
+				return false;
+			});
+			
+			//the play button that goes to zena-popculture
+			$('#second_player').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#chapter1',
+					afterScroll: function() {$('#pop-audio').jPlayer("play", 0);}
+				});
+				return false;
+			});
+			
+
+			//navbar chapter 1 audio function
+			$('#popculture1').click(function() {
+				$('#pop-audio').jPlayer("play", 0);
+				return false;
+			});
+
+			$('#facts1').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#chapter2',
+					afterScroll: function() {$('#fact-audio').jPlayer("play", 0);}
+				});
+				var pauseAll = document.getElementsByTagName('video');
+				for(var i = 0; i < pauseAll.length; i++){
+				   pauseAll[i].pause();
+				   pauseAll[i].load();
+				};
+				return false;
+			});
+
+			$('#hist1').click(function() {
+  				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#chapter3',
+					afterScroll: function() {$('#hist-audio').jPlayer("play", 0);}
+				});
+				var pauseAll = document.getElementsByTagName('video');
+				for(var i = 0; i < pauseAll.length; i++){
+				   pauseAll[i].pause();
+				   pauseAll[i].load();
+				};
+				return false;
+			});
+
+
+			//navbar chapter 2 audio function
+			$('#popculture2').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#chapter1',
+					afterScroll: function() {$('#pop-audio').jPlayer("play", 0);}
+				});
+				return false;
+			});
+
+			$('#facts2').click(function() {
+				$('#fact-audio').jPlayer("play", 0);
+				var pauseAll = document.getElementsByTagName('video');
+				for(var i = 0; i < pauseAll.length; i++){
+				   pauseAll[i].pause();
+				   pauseAll[i].load();
+				};
+				return false;
+			});
+
+			$('#hist2').click(function() {
+  				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#chapter3',
+					afterScroll: function() {$('#hist-audio').jPlayer("play", 0);}
+				});
+				var pauseAll = document.getElementsByTagName('video');
+				for(var i = 0; i < pauseAll.length; i++){
+				   pauseAll[i].pause();
+				   pauseAll[i].load();
+				};
+				return false;
+			});
+
+
+			//navbar chapter 3 audio function
+			$('#popculture3').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					//direction: 'up',
+					scrollTarget: '#chapter1',
+					afterScroll: function() {$('#pop-audio').jPlayer("play", 0);}
+				});
+				return false;
+			});
+
+			$('#facts3').click(function() {
+				$.smoothScroll({
+					speed: 800,
+					scrollTarget: '#chapter2',
+					afterScroll: function() {$('#fact-audio').jPlayer("play", 0);}
+				});
+				var pauseAll = document.getElementsByTagName('video');
+				for(var i = 0; i < pauseAll.length; i++){
+				   pauseAll[i].pause();
+				   pauseAll[i].load();
+				};
+				return false;
+			});
+
+			$('#hist3').click(function() {
+  				$('#hist-audio').jPlayer("play", 0);
+				var pauseAll = document.getElementsByTagName('video');
+				for(var i = 0; i < pauseAll.length; i++){
+				   pauseAll[i].pause();
+				   pauseAll[i].load();
+				};
+				return false;
+			});
+
+			
+			$("#learn-more").click(function() {
+  				$("#pop-audio").jPlayer("pause");
+  				$("#fact-audio").jPlayer("pause");
+  				$("#hist-audio").jPlayer("pause");
+			});
+
+
+			//learn more
+			$('#learn-more').click(function() {
+				$.smoothScroll({
+					speed: 900,
+					scrollTarget: '#learn',
+					afterScroll: function() {
+						$("#pop-audio").jPlayer("pause");
+						$("#fact-audio").jPlayer("pause");
+  						$("#hist-audio").jPlayer("pause");
+					}
+				});
+				return false;
+			});
+			
+
+		});
+		//]]>	
+		</script>	
+
+	<!-- End JavaScript -->
+	
+	
+
+
+
+<title>That's Bananas!</title> 
+</head>
+<body id="top">
+
+
+<!-- ========================================= TITLE =================================== -->
+<div  id="titlecard">
+	<div id="title">
+		<div id="title-inner">
+		 <a id="title-button" href="#">
+		<h5>Calheiros, Kang-Brown & Koo presents</h5>
+		<h1><span>That's</span> Bananas!</h1>
+			<h2>The documentary &#9660;</b></h2></a>
+		</div><!--/title-inner-->	
+			
+	</div><!--/title-->	
+
+	<div class="carousel" data-autoplay>
+		<div>
+			<img src="http://upload.wikimedia.org/wikipedia/commons/8/84/Banana_plantation.jpg" alt="placebananas">
+	    </div><!--/1-->
+
+	    <div>
+			<img src="http://upload.wikimedia.org/wikipedia/commons/f/fb/Banana_plantation_(La_Cuesta)_03_ies.jpg" alt="placebananas">
+	    </div><!--/2-->
+	    	
+	    <div>
+	    	<img src="http://temporarilylostdotcom.files.wordpress.com/2012/07/karatu-village-10-banana-plantation.jpg" alt="placebananas">
+	    </div><!--/3-->
+
+	    <div>
+	    	<img src="http://upload.wikimedia.org/wikipedia/commons/3/31/Cavendish_banana_from_Maracaibo.jpg" alt="placebananas">
+	    </div><!--/4-->
+	</div><!--/carousel-->
+</div> <!-- titlecard -->
+
+<div id="introduction">
+	<div id="intro-inner">
+	
+		<div id="intro-text">
+		<h2>Yes, we are bananas...</h2>
+	
+		<h4>about bananas!  This documentary celebrates bananas in pop culture, fun facts, and the history of cultivation and current demise. We hope you find it informative and introduce you to a new world of banana facts and appreciation.  Goodbye and thanks for all the bananas! <a href="http://www.asdebaunilha.com.br/">Bruna</a>, <a href="http://hannakangbrown.com">Hanna</a>, and <a href="http://www.zenakoo.com">Zena</a>.</h4> 
+		
+		<h6><a id="second_player" href="#">Play &#9656;</a></h6>
+		</div><!--/intro-text-->
+	</div><!--/intro-inner-->
+</div>
+
+<div id="navbar1">
+	<!--<p id="home"><a href="#global-header">Home</a></p>-->
+
+	<div id="audio">
+	
+		<div id="pop-audio" class="jp-jplayer"></div>
+		
+		<div class="jp-audio-container">
+			<div class="jp-audio">
+				<div class="jp-type-single">
+				
+					<div id="jp_interface_1" class="jp-interface">
+						<ul class="jp-controls">
+							<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+							<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+							
+							<li><a href="javascript:;" class="jp-mute" tabindex="1">mute</a></li>
+							<li><a href="javascript:;" class="jp-unmute" tabindex="1">unmute</a></li>
+							
+						</ul>
+						<div class="jp-progress-container">
+							<div class="jp-progress">
+								<div class="jp-seek-bar">
+									<div class="jp-play-bar"></div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="jp-volume-bar-container">
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!--/audio -->
+	
+	<ul id="chapter-nav">
+		<li><div id="disco"><a id="popculture1" href="#c1">POP-CULTURE</a></div></li>
+		<li><div id="wit"><a id="facts1" href="#c2">FUN FACTS!</a></div></li>
+		<li><div id="ob"><a id="hist1" href="#c3">NO BANANAS?</a></div></li>
+<!-- 		<li><div id="myth"><a id="mythic" href="#c4"></a></div></li>
+ -->	</ul>
+
+</div> <!--/navbar -->
+
+<!-- !chapter1 -->
+<div id="chapter1" class="panel">
+
+	
+	<div class="panel-inner">
+	
+	<div id="c1-intro">
+	<h2>Pop-Culture</h2>
+	</div> 
+			<div id="photo1" class="card" >
+				<video id="videozena" width="720" height="540" preload="auto" autobuffer controls>
+				<source src="assets/01pop_culture/BananasPopCulture2.mp4" type="video/mp4">
+				<source src="assets/01pop_culture/BananasPopCulture2.webm" type="video/webm">
+				Your browser does not support the video tag.
+				</video>
+			</div>
+	</div> <!-- /.card -->	
+			
+	</div><!-- /panel-inner -->
+
+</div><!-- /chapter1 -->
+
+
+
+
+
+<!-- /chapter2 -->
+<div id="navbar2">
+	<!--<p id="home"><a href="#global-header">Home</a></p>-->
+
+	<div id="audio">
+	
+		<div id="fact-audio" class="jp-jplayer"></div>
+		
+		<div class="jp-audio-container">
+			<div class="jp-audio">
+				<div class="jp-type-single">
+				
+					<div id="jp_interface_1" class="jp-interface">
+						<ul class="jp-controls">
+							<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+							<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+							
+							<li><a href="javascript:;" class="jp-mute" tabindex="1">mute</a></li>
+							<li><a href="javascript:;" class="jp-unmute" tabindex="1">unmute</a></li>
+							
+						</ul>
+						<div class="jp-progress-container">
+							<div class="jp-progress">
+								<div class="jp-seek-bar">
+									<div class="jp-play-bar"></div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="jp-volume-bar-container">
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!--/audio -->
+	
+	<ul id="chapter-nav">
+		<li><div id="disco"><a id="popculture2" href="#c1">POP-CULTURE</a></div></li>
+		<li><div id="wit"><a id="facts2" href="#c2">FUN FACTS!</a></div></li>
+		<li><div id="ob"><a id="hist2" href="#c3">NO BANANAS?</a></div></li>
+	</ul>
+
+	</div> <!--/navbar -->
+
+<div id="chapter2" class="panel">
+	
+	<div class="panel-inner">
+	
+	<div id="c2-intro">
+	<h2>Fun Facts</h2>
+	<h4>About Bananas!</h4>
+	</div>
+	
+		<div id="filter" class="card2">
+			<img class="fill" width="600" height="450" src="assets/02facts/02waterFilter.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+		
+		<div id="bite" class="card2">
+			<video id="bite2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/03insectBite.mp4" type="video/mp4">
+  				<source src="assets/02facts/03insectBite.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="shoes" class="card2">
+			<video id="shoes2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/04polishShoes.mp4" type="video/mp4">
+  				<source src="assets/02facts/04polishShoes.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+		
+		<div id="ink" class="card2">
+			<video id="ink2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/05eraseInk.mp4" type="video/mp4">
+  				<source src="assets/02facts/05eraseInk.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+		
+		<div id="cd" class="card2">
+			<video id="cd2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/06scratchesCd.mp4" type="video/mp4">
+  				<source src="assets/02facts/06scratchesCd.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="bikini" class="card2">
+			<video id="bikini2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/07aBananaGirl.mp4" type="video/mp4">
+  				<source src="assets/02facts/07aBananaGirl.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="sadboy" class="card2">
+			<video id="sadboy2" class="fill" width="320" height="240" preload="auto" autobuffer>
+  				<source src="assets/02facts/07bBoyBanana.mp4" type="video/mp4">
+  				<source src="assets/02facts/07aBananaGirl.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="guyWithoutHead" class="card2">
+			<video id="guyWithoutHead2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/07cGuyWithoutHead.mp4" type="video/mp4">
+  				<source src="assets/02facts/07cGuyWithoutHead.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="monkey" class="card2">
+			<video id="monkey2" class="fill" width="480" height="270" preload="auto" autobuffer>
+  				<source src="assets/02facts/08monkeyEating.mp4" type="video/mp4">
+  				<source src="assets/02facts/08monkeyEating.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="russian" class="card2">
+			<video id="russian2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/09russianTutorial.mp4" type="video/mp4">
+  				<source src="assets/02facts/09russianTutorial.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="stopmotion" class="card2">
+			<video id="stopmotion2" class="fill" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/10BananaStopMotion.mp4" type="video/mp4">
+  				<source src="assets/02facts/10BananaStopMotion.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="tasty" class="card2">
+			<img class="fill" width="750" height="563" src="assets/02facts/11bananaTasty.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="daddy" class="card2">
+			<video class="fill" id="daddy2" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/12aBananaDaddy.mp4" type="video/mp4">
+  				<source src="assets/02facts/12aBananaDaddy.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="gang" class="card2">
+			<video class="fill" id="gang2" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/12bBananaGang.mp4" type="video/mp4">
+  				<source src="assets/02facts/12bBananaGang.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="costume" class="card2">
+			<video class="fill" id="costume2" width="480" height="270" preload="auto" autobuffer>
+  				<source src="assets/02facts/12cBananaMan.mp4" type="video/mp4">
+  				<source src="assets/02facts/12cBananaMan.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="moon" class="card2">
+			<video class="fill" id="moon2" width="480" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/12dBananaEverywhere.mp4" type="video/mp4">
+  				<source src="assets/02facts/12dBananaEverywhere.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="field" class="card2">
+			<video class="fill" id="field2" width="480" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/12eBananaField.mp4" type="video/mp4">
+  				<source src="assets/02facts/12eBananaField.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->	
+
+		<div id="child" class="card2">
+			<video class="fill" id="child2" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/12fBananas4Bananas.mp4" type="video/mp4">
+  				<source src="assets/02facts/12fBananas4Bananas.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="sadbanana" class="card2">
+			<img width="320" height="213" class="fill" src="assets/02facts/13aSadBanana.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="drunkies" class="card2">
+			<img width="713" height="503" class="fill" src="assets/02facts/13bDrunkies.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="bananadrunk" class="card2">
+			<img width="819" height="513" class="fill" src="assets/02facts/13cBananaDrunk.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="radioactive" class="card2">
+			<img width="620" height="390" class="fill" src="assets/02facts/14radioactiveBanana.jpg" alt="banana filters water">
+		</div> <!-- /.card -->	
+
+		<div id="hangover" class="card2">
+			<video class="fill" id="hangover2" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/15bananaHangover.mp4" type="video/mp4">
+  				<source src="assets/02facts/15bananaHangover.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="dontforget" class="card2">
+			<img width="640" height="360" class="fill" src="assets/02facts/16dontForget.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="ship" class="card2">
+			<img width="598" height="454" class="fill" src="assets/02facts/17bananaShip.jpg" alt="banana filters water">
+		</div> <!-- /.card -->		
+
+		<div id="flying" class="card2">
+			<img width="800" height="600" class="fill" src="assets/02facts/18flyingBanana.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="boat" class="card2">
+			<img width="814" height="550" class="fill" src="assets/02facts/19bananaBoat.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="republic" class="card2">
+			<img width="1142" height="715" class="fill" src="assets/02facts/20bananaRepublic.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="nobananas" class="card2">
+			<img width="470" height="352" class="fill" src="assets/02facts/21noBananas.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="fallboat" class="card2">
+			<video class="fill" id="fallboat2" width="480" height="270" preload="auto" autobuffer>
+  				<source src="assets/02facts/22aFallBoat.mp4" type="video/mp4">
+  				<source src="assets/02facts/22aFallBoat.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="fallpeople" class="card2">
+			<video class="fill" id="fallpeople2" width="640" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/22bFallPeople.mp4" type="video/mp4">
+  				<source src="assets/02facts/22bFallPeople.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="boatfalls" class="card2">
+			<video class="fill" id="boatfalls2" width="320" height="240" preload="auto" autobuffer>
+  				<source src="assets/02facts/22cBoatFalls.mp4" type="video/mp4">
+  				<source src="assets/02facts/22cBoatFalls.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="oldboat" class="card2">
+			<img class="fill" width="847" height="619"src="assets/02facts/23oldBoat.jpg" alt="banana filters water">
+		</div> <!-- /.card -->
+
+		<div id="song" class="card2">
+			<video class="fill" id="song2" width="480" height="360" preload="auto" autobuffer>
+  				<source src="assets/02facts/24bananaSong.mp4" type="video/mp4">
+  				<source src="assets/02facts/24bananaSong.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+		<div id="bananaboatfall" class="card2">
+			<video class="fill" id="bananaboatfall2" width="480" height="270" preload="auto" autobuffer>
+  				<source src="assets/02facts/25bananaBoatFall.mp4" type="video/mp4">
+  				<source src="assets/02facts/25bananaBoatFall.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</div> <!-- /.card -->
+
+	</div>
+</div>
+<!-- /chapter2 -->
+
+
+
+
+
+<!-- /chapter3 -->
+<div id="navbar3">
+	<!--<p id="home"><a href="#global-header">Home</a></p>-->
+
+	<div id="audio">
+	
+		<div id="hist-audio" class="jp-jplayer"></div>
+		
+		<div class="jp-audio-container">
+			<div class="jp-audio">
+				<div class="jp-type-single">
+				
+					<div id="jp_interface_1" class="jp-interface">
+						<ul class="jp-controls">
+							<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+							<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+							
+							<li><a href="javascript:;" class="jp-mute" tabindex="1">mute</a></li>
+							<li><a href="javascript:;" class="jp-unmute" tabindex="1">unmute</a></li>
+							
+						</ul>
+						<div class="jp-progress-container">
+							<div class="jp-progress">
+								<div class="jp-seek-bar">
+									<div class="jp-play-bar"></div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="jp-volume-bar-container">
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!--/audio -->
+	
+	<ul id="chapter-nav">
+		<li><div id="disco"><a id="popculture3" href="#c1">POP-CULTURE</a></div></li>
+		<li><div id="wit"><a id="facts3" href="#c2">FUN FACTS!</a></div></li>
+		<li><div id="ob"><a id="hist3" href="#c3">NO BANANAS?</a></div></li>
+	</ul>
+
+	</div> <!--/navbar -->
+
+<div id="chapter3" class="panel">
+	
+	<div class="panel-inner">
+	
+		<div id="c3-intro" >
+			<h2>The Banana</h2>
+			<h4>AS WE KNOW IT</h4>
+		</div> <!-- /.card -->
+
+		<div id="3photo3" class="card">
+		<video id="3photo3v" width="600" height="400" preload="auto" autobuffer controls>
+  			<source src="assets/03history/BananaDelMonte.mp4" type="video/mp4">
+  			<source src="assets/03history/BananaDelMonte.webm" type="video/webm">
+			Your browser does not support the video tag.
+		</video>
+			</div> <!-- /.card -->
+
+		<div id="3photo5" class="card">
+       <video id="3photo5v" width="600" height="400" preload="auto" autobuffer controls>
+                 <source src="assets/03history/ChiquitaBananaPlantationGuatemala.mp4" type="video/mp4">
+                 <source src="assets/03history/ChiquitaBananaPlantationGuatemala.webm" type="video/webm">
+               Your browser does not support the video tag.
+       </video>
+               </div> <!-- /.card -->
+
+        <div id="3photo6" class="card">
+            <img src= "assets/03history/grosmichelbunches.jpg" class="scale-with-grid">
+        </div>
+
+		<div id="3photo7" class="card">
+		<video id="3photo7v" width="600" height="400" preload="auto" autobuffer controls>
+  			<source src="assets/03history/DelMonteBananaPlantationCostaRica.mp4" type="video/mp4">
+  			<source src="assets/03history/DelMonteBananaPlantationCostaRica.webm" type="video/webm">
+			Your browser does not support the video tag.
+		</video>
+			</div> <!-- /.card -->
+
+		<div id="3photo8" class="card">
+		<video id="3photo8v" width="600" height="400" preload="auto" autobuffer controls>
+			 <source src="assets/03history/ECUADORBANANAPLANTATION.mp4" type="video/mp4">
+  			<source src="assets/03history/ECUADORBANANAPLANTATION.webm" type="video/webm">
+			Your browser does not support the video tag.
+		</video>
+		</div> <!-- /.card -->
+		
+		<div id="c4-intro" class="card">
+			<h2>Is this Goodbye?</h2>
+		</div> <!-- /.card -->
+
+		<div id="3photo1" class="card">
+		<video id="3photo1v" width="600" height="400" preload="auto" autobuffer controls>
+  			<source src="assets/03history/AboutBan_prelinger.mp4" type="video/mp4">
+  			<source src="assets/03history/AboutBan_prelinger.webm" type="video/webm">
+			Your browser does not support the video tag.
+		</video>
+			</div> <!-- /.card -->
+
+
+		<div id="3photo2" class="card">
+		<video id="3photo2v" width="600" height="400" preload="auto" autobuffer controls>
+  			<source src="assets/04extinction/1930Cartoon.mp4" type="video/mp4">
+  		   <source src="assets/04extinction/1930Cartoon.webm" type="video/webm">
+			Your browser does not support the video tag.
+		</video>
+			</div> <!-- /.card -->
+		
+		<div id="c5-intro" class="card">
+			<h2>Share this story</h2>
+
+			<div id="quotes">
+				
+				<blockquote>
+					<p>&quot;Intellectual property has the shelf life of a banana.&quot;</p>
+					<h5>&#8212;Bill Gates</h5>
+				</blockquote>
+
+				<blockquote>
+					<p>&quot;Bananas are great, as I believe them to be the only known cure for existential dread. Also, Mother Teresa said that in India, a woman dying in the street will share her banana with anyone who needs it, whereas in America, people amass and hoard as many bananas as they can to sell for an exorbitant profit. So half of them go bad, anyway.&quot;</p>
+					<h5>&#8212;Anne Lamott</h5>
+				</blockquote>
+			
+			</div><!--/quotes -->
+	
+			<a id="lm" href="#learn">
+				<h3>Learn More  &darr;</h3>
+			</a><!-- /lm -->
+
+		</div> <!-- /.card -->
+	</div>
+</div>
+<!-- /chapter3 -->
+
+
+
+
+<!-- !learn -->
+<div id="learn">
+
+	<div class="container">
+	
+		<div id="about" class="four columns">	
+		
+			
+		</div><!--/four--> 
+	
+		<div id="cushman-legacy" class="eleven columns offset-by-one">
+			<h2>A Little More</h2>
+			
+			<p>Who knew bananas could be so fascinating?  It's been a part of popular culture since the late 1800s and popular ever since it was introduced to Americans.  It's hard to imagine something so normal and mundane as bananas having a fragile existence in the world but we hope that <i>That's Bananas</i> introduced you to thinking about the delicate future of this fruit and the reasons for its demise.</p>
+
+			<p>	We hope that you pursue your banana interests and discover more about how its cultivation has developed and impacted our world, for better or for worse.  </p>
+
+
+			<p>Here's a <a href="http://bananamentary.tumblr.com">list of resources</a> that informed the creation of this interactive documentary.</p>
+
+
+			<p>Be in touch and thanks for visiting.</p>
+
+		
+		<div id="about-project">
+		<h3>About the project</h3>
+			<p><i>That's Bananas!</i> is a collaboration between Bruna Calheiros, <a href="http://hannakangbrown.com">Hanna Kang-Brown</a>, and Zena Koo, graduate students of NYU's ITP program. This project was developed for the class <a href="http://www.connecteddocumentary.org">Connected Documentary</a>. </p>
+
+		
+		</div>
+
+		</div><!--/twelve-->
+	</div><!-- /container -->
+	
+</div><!-- /learn -->
+
+<!--[if lt IE 8 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<script src="js/text.js"></script>
+<script src="js/text2.js"></script>
+<script src="js/text3.js"></script>
+
+</body>
+</html>

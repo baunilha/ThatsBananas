@@ -1,0 +1,149 @@
+
+/*** NEW CSS ***/
+/*** Bruna Calheiros ***/
+
+.card2 {
+	float: left;
+	width: auto;
+	margin: 0 0 0 0;
+	padding: 0px 0px 0px 0px;
+	margin-top: 0px;
+}
+
+
+.card3 {
+	float: left;
+	width: auto;
+	margin: 0 0 0 0;
+	padding: 0px 0px 0px 0px;
+	margin-top: 0px;
+}
+
+/*** Chapter 2 ***/
+
+#chapter2 {
+background: #111 url(http://www.publicdomainpictures.net/pictures/10000/velka/1-1254836844J2B3.jpg);
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	background-size:cover;
+position: relative;
+height: 800px;
+color: #ddd;
+
+}
+
+
+/**** c2-intro ****/
+
+#c2-intro {
+	width: 1500px;
+	height: 700px;
+	float: left;
+	margin: 0 0 0 0;
+	background: transparent url(http://business-ethics.com/wp-content/uploads/2010/06/Bananas_EarthTalk.jpg);
+	padding: 100px 30px;
+	border-right: 6px solid #000;
+	
+}
+
+#c2-intro.color {
+	background: transparent url(http://business-ethics.com/wp-content/uploads/2010/06/Bananas_EarthTalk.jpg);
+
+}
+
+#c2-intro h2 {
+	font-size: 120px;
+	padding-top: 160px;
+	margin: -10px 0 10px 0;
+	margin-bottom: 20px;
+}
+
+#c2-intro h3 {
+	font-family: 'Hammersmith One', helvetica, arial, sans-serif;
+	margin: 0 0 20px 0;
+	text-shadow: 1px 2px 3px #000;
+	font-size: 28px;
+	width: 800px;
+	font-weight: normal;
+	color: #a6dbd5;
+	text-shadow: 3px 4px 10px #000;
+}
+
+#c2-intro h4 {
+	font-family: 'Hammersmith One', helvetica, arial, sans-serif;
+	margin: 0 0 20px 0;
+	text-shadow: 1px 2px 3px #000;
+	font-size: 92px;
+	padding-top: 0px;
+	margin: -10px 0 10px 0;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+/*** ********************* ***/
+/*** ********************* ***/
+/*** ********************* ***/
+
+/*** Chapter 3 ***/
+
+#chapter3 {
+
+background: #111 url(http://blog.hannakangbrown.com/images/waikikiPlantation.jpg);
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	background-size:cover;
+position: relative;
+height: 800px;
+color: #fff;
+
+}
+
+/**** c3-intro ****/
+
+#c3-intro {
+	width: 1500px;
+	height: 700px;
+	float: left;
+	margin: 0 0 0 0;
+	background: transparent url(http://blog.hannakangbrown.com/images/vintage%20chiquita.jpg);
+	padding: 100px 30px;
+	border-right: 6px solid #000;
+	
+}
+
+#c3-intro.color {
+	background: transparent url(http://blog.hannakangbrown.com/images/vintage%20chiquita.jpg);
+
+}
+
+#c3-intro h2 {
+	font-size: 120px;
+	padding-top: 40px;
+	margin: -10px 0 10px 0;
+	margin-bottom: 0px;
+}
+
+#c3-intro h3 {
+	font-family: 'Hammersmith One', helvetica, arial, sans-serif;
+	margin: 0 0 20px 0;
+	text-shadow: 1px 2px 3px #000;
+	font-size: 28px;
+	width: 800px;
+	font-weight: normal;
+	color: #a6dbd5;
+	text-shadow: 3px 4px 10px #000;
+}
+
+#c3-intro h4 {
+	font-family: 'Hammersmith One', helvetica, arial, sans-serif;
+	margin: 0 0 20px 0;
+	text-shadow: 1px 2px 3px #000;
+	font-size: 92px;
+	padding-top: 0px;
+	margin: -10px 0 10px 0;
+	margin-bottom: 20px;
+}
